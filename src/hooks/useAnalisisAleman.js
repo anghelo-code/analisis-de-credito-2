@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect } from 'react';
 
-const useAnalisis = (prestamo, interes, periodos, setResultado) =>{
-
-    interes = interes / 100
+const useAnalisisAleman = (prestamo, interes, periodos, setResultado) => {
+    
+    interes = interes / 100;
 
     useEffect(() => {
         const resultado = Datos(prestamo, interes, periodos);
@@ -26,13 +26,14 @@ const Datos = (prestamo, interes, periodos) => {
     resultado.push(datos);
     datos = {};
 
-    const paMensual = PagoMensual(prestamo, interes, periodos);
+    const amortizacion = Amortizacion(prestamo, periodos);
+    
 
     
 
     for (let i = 1; i <= periodos; i++) {
         let paInteres = PagoInteres(saldo,interes);
-        let amortizacion = Amortizacion(paInteres, paMensual);
+        let paMensual = PagoMensual(amortizacion, paInteres);
         saldo = Saldo(amortizacion, saldo);
 
         datos['id'] = i;
@@ -58,22 +59,21 @@ const PagoInteres = (saldo, interes) => {
 }
 
 
-const PagoMensual = (prestamo, interes, periodos) => {
-    let oper = (1 + interes)**periodos;
-    let oper2 = ((interes * oper)/(oper - 1))*prestamo;
-    return oper2.toFixed(2);
-}
-
-
-const Amortizacion = (paInteres, paMensual) => {
-    let oper = paMensual - paInteres;
-    return oper.toFixed(3);
-}
-
-const Saldo = (amortizacion, saldo) => {
-    let oper = saldo - amortizacion;
+const PagoMensual = (amortizacion, paInteres) => {
+    let oper = parseInt(amortizacion) + parseInt(paInteres);
+    console.log('pago de mensual: ', oper);
     return oper.toFixed(2);
 }
 
 
-export default useAnalisis;
+const Amortizacion = (saldo, periodos) => {
+    let oper = saldo/periodos;
+    return oper.toFixed(3);
+}
+
+const Saldo = (amortizacion, saldo) => {
+    let oper = parseInt(saldo) - parseInt(amortizacion);
+    return oper.toFixed(2);
+}
+
+export default useAnalisisAleman

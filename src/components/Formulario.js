@@ -1,18 +1,10 @@
-import React, { useEffect } from 'react'
-import useAnalisis from '../hooks/useAnalisis';
+import React from 'react';
 
-export const Formulario = ({setPrestamo, setInteres, setPeriodo, setResultado, datos}) => {
+export const Formulario = () => {
 
 
     return (
-    <div>
-        <form  className='form' onSubmit={ ev =>{
-            ev.preventDefault();
-            setPrestamo(ev.target.prestamo.value);
-            setInteres(ev.target.interes.value);
-            setPeriodo(ev.target.periodo.value)
-
-        }}>
+        <>
             <div>
                 <label htmlFor="prestamo">Prestamo inicial:</label>
                 <input type='number' id="prestamo" name='prestamo' min="1000" max="100000" ></input>
@@ -28,12 +20,6 @@ export const Formulario = ({setPrestamo, setInteres, setPeriodo, setResultado, d
                 <input type='number' id='periodo' name='periodo' min={3} max={36} step="1"  ></input>
             </div>
 
-            <button type='submit' onClick={
-
-                useAnalisis(datos[0], datos[1], datos[2], setResultado)
-
-            }>iniciar</button>
-        </form>
-    </div>
+        </>
  )
 }
