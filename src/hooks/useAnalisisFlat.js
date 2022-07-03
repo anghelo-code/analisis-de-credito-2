@@ -1,8 +1,7 @@
 import { useEffect } from 'react';
 
-const useAnalisisAleman = (prestamo, interes, periodos, setResultado) => {
-    
-    interes = interes / 100;
+const useAnalisisFlat = (prestamo, interes, periodos, setResultado) => {
+    interes = interes / 100
 
     useEffect(() => {
         const resultado = Datos(prestamo, interes, periodos);
@@ -10,6 +9,7 @@ const useAnalisisAleman = (prestamo, interes, periodos, setResultado) => {
         console.log(resultado)
     },[prestamo, interes, periodos])
 }
+
 
 const Datos = (prestamo, interes, periodos) => {
     let resultado = [];
@@ -26,14 +26,13 @@ const Datos = (prestamo, interes, periodos) => {
     resultado.push(datos);
     datos = {};
 
+    const paInteres = PagoInteres(saldo,interes);
     const amortizacion = Amortizacion(prestamo, periodos);
-    
-
+    const paMensual = PagoMensual(paInteres, amortizacion) 
     
 
     for (let i = 1; i <= periodos; i++) {
-        let paInteres = PagoInteres(saldo,interes);
-        let paMensual = PagoMensual(amortizacion, paInteres);
+        
         saldo = Saldo(amortizacion, saldo);
 
         datos['id'] = i;
@@ -52,27 +51,28 @@ const Datos = (prestamo, interes, periodos) => {
 
 
 
-
 const PagoInteres = (saldo, interes) => {
     let variable = saldo * interes;
     return variable.toFixed(3);
 }
 
 
-const PagoMensual = (amortizacion, paInteres) => {
-    let oper = parseFloat(amortizacion) + parseFloat(paInteres);
-    return oper.toFixed(2);
+const PagoMensual = (paInteres, amortizacion) => {
+    let variable = parseFloat(paInteres) + parseFloat(amortizacion);
+    return variable.toFixed(3);
 }
 
 
-const Amortizacion = (saldo, periodos) => {
-    let oper = saldo/periodos;
-    return oper.toFixed(3);
+const Amortizacion = (periodos, prestamo) => {
+    let variable = prestamo / periodos;
+    return variable.toFixed(3);
 }
+
 
 const Saldo = (amortizacion, saldo) => {
-    let oper = parseFloat(saldo) - parseFloat(amortizacion);
-    return oper.toFixed(2);
+    let variable = parseFloat(saldo) - parseFloat(amortizacion);
+    return variable.toFixed(3);
 }
 
-export default useAnalisisAleman
+
+export default useAnalisisFlat
