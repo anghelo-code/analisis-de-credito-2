@@ -26,7 +26,7 @@ const MetodoAleman = () => {
   return (
     <div className="container " align="center">
       
-      <h2>Analizador Metodo Aleman</h2>
+      <h2>Analizador Metodo Alemán</h2>
 
       <div>
         <form className='form' onSubmit={ ev =>{

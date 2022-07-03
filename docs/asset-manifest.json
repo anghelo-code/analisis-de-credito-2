@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.1b529064.css",
-    "main.js": "/static/js/main.32c906e2.js",
+    "main.css": "/static/css/main.ca6e317d.css",
+    "main.js": "/static/js/main.8a61f7c5.js",
     "static/js/787.e6417c3c.chunk.js": "/static/js/787.e6417c3c.chunk.js",
     "static/media/Elmo_Good_negro_2.png": "/static/media/Elmo_Good_negro_2.4271190d5b4fa3d636a7.png",
     "index.html": "/index.html",
-    "main.1b529064.css.map": "/static/css/main.1b529064.css.map",
-    "main.32c906e2.js.map": "/static/js/main.32c906e2.js.map",
+    "main.ca6e317d.css.map": "/static/css/main.ca6e317d.css.map",
+    "main.8a61f7c5.js.map": "/static/js/main.8a61f7c5.js.map",
     "787.e6417c3c.chunk.js.map": "/static/js/787.e6417c3c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1b529064.css",
-    "static/js/main.32c906e2.js"
+    "static/css/main.ca6e317d.css",
+    "static/js/main.8a61f7c5.js"
   ]
 }

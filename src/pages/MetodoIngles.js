@@ -25,7 +25,7 @@ const MetodoIngles = () => {
   return (
     <div className="container " align="center">
       
-      <h2>Analizador Metodo Ingles</h2>
+      <h2>Analizador Metodo Inglés</h2>
 
       <div>
         <form className='form' onSubmit={ ev =>{
