@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Tabla } from "../components/Tabla";
 import { Formulario } from "../components/Formulario";
-import useAnalisisAleman from '../hooks/useAnalisisFlat';
 import useAnalisisFlat from "../hooks/useAnalisisFlat";
 
 
@@ -27,7 +26,7 @@ const MetodoFlat = () => {
   return (
     <div className="container " align="center">
       
-      <h2>Analizador Metodo Aleman</h2>
+      <h2>Analizador Metodo Flat</h2>
 
       <div>
         <form className='form' onSubmit={ ev =>{

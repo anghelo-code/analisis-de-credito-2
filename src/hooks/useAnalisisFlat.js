@@ -27,7 +27,7 @@ const Datos = (prestamo, interes, periodos) => {
     datos = {};
 
     const paInteres = PagoInteres(saldo,interes);
-    const amortizacion = Amortizacion(prestamo, periodos);
+    const amortizacion = Amortizacion(periodos, prestamo);
     const paMensual = PagoMensual(paInteres, amortizacion) 
     
 
@@ -64,7 +64,9 @@ const PagoMensual = (paInteres, amortizacion) => {
 
 
 const Amortizacion = (periodos, prestamo) => {
+    console.log('datos: ', prestamo, periodos)
     let variable = prestamo / periodos;
+    console.log('resultado: ', variable)
     return variable.toFixed(3);
 }
 
