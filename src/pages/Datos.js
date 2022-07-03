@@ -1,9 +1,7 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
 import AddButton from '../components/AddButton';
-import MetodoAleman from './MetodoAleman';
-import MetodoIngles from './MetodoIngles';
-import MetodoFrances from './MetodoFrances';
+import Nombres from '../components/Nombres';
+
 
 const Datos = () => {
 
@@ -16,6 +14,7 @@ const Datos = () => {
         <AddButton link="/MetodoIngles" text="Metodo de Analisis Ingles" />
         <AddButton link="/MetodoFlat" text="Metodo de Analisis Flat" />
       </div>
+      <Nombres/>
     </>
   )
 }
